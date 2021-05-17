@@ -18,7 +18,9 @@ def generate_prediction(date):
 
     for i in range(24):
         data.append([cur_date, "buy", 1, 1])
-        data.append([cur_date, "sell", 2, 1])
+
+        if i >= 9 and i <= 15:
+            data.append([cur_date, "sell", 2, 0.5])
 
         cur_date = get_last_date.next_hour(cur_date)
     return data
